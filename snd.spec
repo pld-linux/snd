@@ -1,8 +1,8 @@
 #
 # Conditional build:
 %bcond_without	gl	# with OpenGL (reason yet unknown)
-%bcond_with	gtk	# seems to be broken :]
 %bcond_without	ruby	# embed Ruby
+%bcond_with	gtk	# seems to be broken :]
 #
 Summary:	A sound editor modelled loosely after Emacs
 Summary(pl):	Edytor plików d¼wiêkowych wzorowany na Emacsie
@@ -50,7 +50,7 @@ Guile lub Ruby.
 	--with-ladspa \
 	%{?with_ruby:--with-ruby} \
 	%{?with_gl:--with-gl} \
-	%{?without_guile:--without-guile}
+	%{!?with_guile:--without-guile}
 
 %{__make} \
 	FLAGS="%{rpmcflags}"
