@@ -1,24 +1,25 @@
-
-%bcond_without	ruby	# embed Rubby
-%bcond_without	gl	# with opengl (reason yet unknown)
-
+#
+# Conditional build:
+%bcond_without	gl	# with OpenGL (reason yet unknown)
+%bcond_without	ruby	# embed Ruby
+#
 Summary:	A sound editor modelled loosely after Emacs
-Summary(pl):	Edytor plików dzwiêkowych wzorowany na Emacsie
+Summary(pl):	Edytor plików d¼wiêkowych wzorowany na Emacsie
 Name:		snd
 Version:	7
 Release:	1
 License:	LGPL
+Vendor:		CCRMA/Music Stanford University
 Group:		Applications/Sound
 Source0:	ftp://ccrma-ftp.stanford.edu/pub/Lisp/%{name}-%{version}.tar.gz
 # Source0-md5:	bb5882fda1be527cd0b6dcae31e081c9
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://www-ccrma.stanford.edu/software/snd/
-Vendor:		CCRMA/Music Stanford University
-#%{?with_ruby:BuildRequires:	ruby-devel}
-%{?with_ruby:BuildRequires:	ruby}
 %{?with_gl:BuildRequires:	gtkglext-devel}
 %{?with_guile:BuildRequires:	guile-devel}
+%{?with_ruby:BuildRequires:	ruby}
+#%{?with_ruby:BuildRequires:	ruby-devel}
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,8 +55,6 @@ Guile lub Ruby.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-#install -d $RPM_BUILD_ROOT%{_bindir}
-#install snd $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -67,6 +66,6 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.Snd *.html *.png *.scm *.rb tutorial/
+%doc *.Snd *.html *.png *.scm *.rb tutorial
 %attr(755,root,root) %{_bindir}/snd
 %{_mandir}/man1/*
