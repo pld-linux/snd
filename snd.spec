@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	gl	# with OpenGL (reason yet unknown)
+%bcond_with	gtk	# seems to be broken :]
 %bcond_without	ruby	# embed Ruby
 #
 Summary:	A sound editor modelled loosely after Emacs
@@ -16,10 +17,11 @@ Source0:	ftp://ccrma-ftp.stanford.edu/pub/Lisp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://www-ccrma.stanford.edu/software/snd/
+BuildRequires:	alsa-devel
 %{?with_gl:BuildRequires:	gtkglext-devel}
+%{?with_gtk:BuildRequires:	gtk+2-devel}
 %{?with_guile:BuildRequires:	guile-devel}
 %{?with_ruby:BuildRequires:	ruby}
-#%{?with_ruby:BuildRequires:	ruby-devel}
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,10 +46,10 @@ Guile lub Ruby.
 %{__autoconf}
 %configure \
 	--with-alsa \
-	--with-gtk \
+	%{?with_gtk:--with-gtk} \
 	--with-ladspa \
 	%{?with_ruby:--with-ruby} \
-	--with-gl \
+	%{?with_gl:--with-gl} \
 	%{?without_guile:--without-guile}
 
 %{__make} \
