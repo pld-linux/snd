@@ -17,7 +17,7 @@ Source0:	ftp://ccrma-ftp.stanford.edu/pub/Lisp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://www-ccrma.stanford.edu/software/snd/
-BuildRequires:	alsa-devel
+BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_gl:BuildRequires:	gtkglext-devel}
