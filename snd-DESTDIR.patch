@@ -1,0 +1,14 @@
+diff -urN snd-7-old/makesnd.back snd-7/makesnd.back
+--- snd-7-old/makesnd.back	2004-02-21 12:41:37.000000000 +0100
++++ snd-7/makesnd.back	2004-02-21 23:50:03.065047568 +0100
+@@ -46,8 +46,8 @@
+ 	$(mkinstalldirs) $(DESTDIR)$(mandir)
+ 	$(mkinstalldirs) $(DESTDIR)$(mandir)/man1
+ 	(cd po && $(MAKE) install)
+-	$(INSTALL) snd $(bindir)/snd
+-	$(INSTALL) $(srcdir)/snd.1 $(mandir)/man1
++	$(INSTALL) snd $(DESTDIR)$(bindir)/snd
++	$(INSTALL) $(srcdir)/snd.1 $(DESTDIR)$(mandir)/man1
+ 
+ uninstall:
+ 	rm -f $(bindir)/snd

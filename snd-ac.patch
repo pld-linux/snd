@@ -1,0 +1,44 @@
+diff -urN snd-7-old/configure.ac snd-7/configure.ac
+--- snd-7-old/configure.ac	2004-02-21 12:41:36.000000000 +0100
++++ snd-7/configure.ac	2004-02-21 23:49:41.319353416 +0100
+@@ -228,7 +228,6 @@
+ AC_SYS_LARGEFILE
+ AC_TYPE_OFF_T
+ AC_C_STRINGIZE
+-AM_LANGINFO_DECIMAL_POINT
+ 
+ AC_CHECK_SIZEOF(int)
+ AC_CHECK_SIZEOF(char)
+@@ -680,16 +679,16 @@
+ # there's no gtkglext config program, as far as I can tell, so...
+         OLD_CFLAGS="$CFLAGS"
+ 	OLD_CPPFLAGS="$CPPFLAGS"
+-        CFLAGS="-I/usr/local/include/gtkglext-1.0 -I/usr/local/lib/gtkglext-1.0/include $GTK_CFLAGS $CFLAGS"
+-        CPPFLAGS="-I/usr/local/include/gtkglext-1.0 -I/usr/local/lib/gtkglext-1.0/include $GTK_CFLAGS $CFLAGS"
++        CFLAGS="-I/usr/include/gtkglext-1.0 -I/usr/lib/gtkglext-1.0/include $GTK_CFLAGS $CFLAGS"
++        CPPFLAGS="-I/usr/include/gtkglext-1.0 -I/usr/lib/gtkglext-1.0/include $GTK_CFLAGS $CFLAGS"
+ 	AC_CHECK_HEADER(gtk/gtkgl.h,
+ 	  [
+             GL_LIBS="$GL_LIBS -lgdkglext-x11-1.0 -lgtkglext-x11-1.0"
+-            GL_FLAGS="$GL_FLAGS -I/usr/local/include/gtkglext-1.0 -I/usr/local/lib/gtkglext-1.0/include"
++            GL_FLAGS="$GL_FLAGS -I/usr/include/gtkglext-1.0 -I/usr/lib/gtkglext-1.0/include"
+ 	  ],
+ 	  [
+             GL_LIBS="$GL_LIBS -lgdkglext-x11-0.x -lgtkglext-x11-0.x"
+-            GL_FLAGS="$GL_FLAGS -I/usr/local/include/gtkglext-0.x"
++            GL_FLAGS="$GL_FLAGS -I/usr/include/gtkglext-0.x"
+ 	  ])
+ 	CFLAGS="$OLD_CFLAGS"
+ 	CPPFLAGS="$OLD_CPPFLAGS"
+diff -urN snd-7-old/po/Makefile.in.in snd-7/po/Makefile.in.in
+--- snd-7-old/po/Makefile.in.in	2004-02-21 12:41:38.000000000 +0100
++++ snd-7/po/Makefile.in.in	2004-02-21 23:49:41.320353264 +0100
+@@ -27,7 +27,7 @@
+ INSTALL = @INSTALL@
+ INSTALL_DATA = @INSTALL_DATA@
+ MKINSTALLDIRS = @MKINSTALLDIRS@
+-mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in /*) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_builddir)/$(MKINSTALLDIRS)" ;; esac`
++mkinstalldirs = $(MKINSTALLDIRS)
+ 
+ GMSGFMT = @GMSGFMT@
+ MSGFMT = @MSGFMT@
