@@ -18,6 +18,8 @@ Patch0:		%{name}-ac.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://www-ccrma.stanford.edu/software/snd/
 BuildRequires:	alsa-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 %{?with_gl:BuildRequires:	gtkglext-devel}
 %{?with_gtk:BuildRequires:	gtk+2-devel}
 %{?with_guile:BuildRequires:	guile-devel}
