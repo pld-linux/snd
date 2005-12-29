@@ -23,7 +23,11 @@ BuildRequires:	automake
 %{?with_gl:BuildRequires:	gtkglext-devel}
 %{?with_gtk:BuildRequires:	gtk+2-devel}
 %{?with_guile:BuildRequires:	guile-devel}
-%{?with_ruby:BuildRequires:	ruby}
+%if %{with ruby}
+BuildRequires:	rpmbuild(macros) >= 1.277
+BuildRequires:	ruby-devel
+%ruby_mod_ver_requires_eq
+%endif
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
