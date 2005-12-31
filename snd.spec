@@ -26,7 +26,7 @@ BuildRequires:	automake
 %if %{with ruby}
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-devel
-%ruby_mod_ver_requires_eq
+%{?ruby_mod_ver_requires_eq}
 %endif
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
