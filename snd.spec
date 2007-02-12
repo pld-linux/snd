@@ -5,7 +5,7 @@
 %bcond_with	gtk	# seems to be broken :]
 #
 Summary:	A sound editor modelled loosely after Emacs
-Summary(pl):	Edytor plików d¼wiêkowych wzorowany na Emacsie
+Summary(pl.UTF-8):   Edytor plikÃ³w dÅºwiÄ™kowych wzorowany na Emacsie
 Name:		snd
 Version:	7
 Release:	1
@@ -36,10 +36,10 @@ sorely-missed PDP-10 sound editor named Dpysnd. It can accommodate any
 number of sounds each with any number of channels, and can be
 customized and extended using Guile or Ruby.
 
-%description -l pl
-Snd jest edytorem plików dzwiêkowych wzorowanym na Emacsie i
-nieod¿a³owanym Dpysnd z PDP-10. Potrafi obs³ugiwaæ dowoln± liczbê
-plików z dowoln± liczb± kana³ów i mo¿e byæ rozbudowywany za pomoc±
+%description -l pl.UTF-8
+Snd jest edytorem plikÃ³w dzwiÄ™kowych wzorowanym na Emacsie i
+nieodÅ¼aÅ‚owanym Dpysnd z PDP-10. Potrafi obsÅ‚ugiwaÄ‡ dowolnÄ… liczbÄ™
+plikÃ³w z dowolnÄ… liczbÄ… kanaÅ‚Ã³w i moÅ¼e byÄ‡ rozbudowywany za pomocÄ…
 Guile lub Ruby.
 
 %prep
