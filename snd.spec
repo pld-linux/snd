@@ -5,7 +5,7 @@
 %bcond_with	gtk	# seems to be broken :]
 #
 Summary:	A sound editor modelled loosely after Emacs
-Summary(pl.UTF-8):   Edytor plików dźwiękowych wzorowany na Emacsie
+Summary(pl.UTF-8):	Edytor plików dźwiękowych wzorowany na Emacsie
 Name:		snd
 Version:	7
 Release:	1
