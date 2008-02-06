@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	gl	# with OpenGL (reason yet unknown)
+%bcond_without	opengl	# with OpenGL (reason yet unknown)
 %bcond_without	ruby	# embed Ruby
 %bcond_with	gtk	# seems to be broken :]
 #
@@ -20,7 +20,7 @@ URL:		http://www-ccrma.stanford.edu/software/snd/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-%{?with_gl:BuildRequires:	gtkglext-devel}
+%{?with_opengl:BuildRequires:	gtkglext-devel}
 %{?with_gtk:BuildRequires:	gtk+2-devel}
 %{?with_guile:BuildRequires:	guile-devel}
 %if %{with ruby}
@@ -55,7 +55,7 @@ Guile lub Ruby.
 	%{?with_gtk:--with-gtk} \
 	--with-ladspa \
 	%{?with_ruby:--with-ruby} \
-	%{?with_gl:--with-gl} \
+	%{?with_opengl:--with-gl} \
 	%{!?with_guile:--without-guile}
 
 %{__make} \
